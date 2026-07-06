@@ -1,0 +1,27 @@
+## Ignore Visual Studio temp files and build directories
+.vs/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bin/Debug/
+bin/Release/
+obj/
+WebApplication1/bin/
+WebApplication1/obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Local agent scratch files
+scratch/
+deploy.ps1
+
+## Keep the root bin folder which contains our WebApplication1.dll!
+## Traditional ASP.NET Web Applications need the bin DLL to run on Somee.
+!bin/
+!bin/WebApplication1.dll
+!bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+!bin/roslyn/
