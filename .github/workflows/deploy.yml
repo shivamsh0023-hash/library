@@ -1,0 +1,32 @@
+name: Deploy Website to Somee
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  web-deploy:
+    name: Deploy via FTP
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get latest code
+      uses: actions/checkout@v3
+
+    - name: Sync files to Somee via FTP
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: library.somee.com
+        username: shivam12345
+        password: ${{ secrets.SOMEE_FTP_PASSWORD }}
+        local-dir: ./
+        server-dir: /www.library.somee.com/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          .vs/
+          obj/
+          WebApplication1/obj/
+          WebApplication1/bin/
+          scratch/
+          deploy.ps1
